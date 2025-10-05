@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jigsaw Puzzle Maker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <header>
+        <h1>Jigsaw Puzzle Maker</h1>
+      </header>
+
+      <main>
+        <div id="setup-container">
+          <h2>Create Your Puzzle</h2>
+          <input type="file" id="image-uploader" accept="image/*" />
+          <select id="difficulty-select">
+            <option value="5">Easy (5 Pieces)</option>
+            <option value="20" selected>Medium (20 Pieces)</option>
+            <option value="40">Hard (40 Pieces)</option>
+            <option value="80">Expert (80 Pieces)</option>
+            <option value="100">Master (100 Pieces)</option>
+          </select>
+          <button id="start-button">Start Puzzle</button>
+        </div>
+
+        <div id="game-container" class="hidden">
+          <div class="game-area">
+            <div id="puzzle-board"></div>
+          </div>
+          <aside class="pieces-area">
+            <h2>Pieces</h2>
+            <div id="score-display">Score: 0 / 0</div>
+            <div id="pieces-container"></div>
+          </aside>
+        </div>
+      </main>
+
+      <footer>
+        <button id="hint-button" class="hidden">Get Hint</button>
+        <button id="reset-button" class="hidden">Reset Game</button>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="../Q6/tracker.js"></script>
+  </body>
+</html>

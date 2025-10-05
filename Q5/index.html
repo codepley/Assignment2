@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Dictionary Generator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Data Dictionary & Relationship Diagram Generator</h1>
+
+      <details open>
+        <summary><h2>Instructions for Use</h2></summary>
+        <div class="instructions">
+          <h3>Step 1: Generate Schema in JSON Format</h3>
+          <p>
+            This tool requires your database schema to be in a specific JSON
+            format. Paste the JSON into the text box below. The structure should
+            be as follows:
+          </p>
+          <pre>
+{
+  "tables": [
+    {
+      "name": "TableName",
+      "columns": [
+        {
+          "name": "ColumnName",
+          "dataType": "VARCHAR(255)",
+          "isPrimaryKey": true,
+          "isForeignKey": false,
+          "description": "Optional description."
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "fromTable": "ForeignKeyTable",
+      "fromColumn": "ForeignKeyColumn",
+      "toTable": "PrimaryKeyTable",
+      "toColumn": "PrimaryKeyColumn"
+    }
+  ]
+}
+                </pre
+          >
+          <h4>How to get schema from your database?</h4>
+          <p>
+            You can use SQL queries on your database's metadata tables (like
+            `information_schema`) to get the required information. Here are
+            example queries for PostgreSQL and MySQL:
+          </p>
+          <p><b>For PostgreSQL:</b></p>
+          <pre>
+-- For Tables and Columns
+SELECT t.table_name, c.column_name, c.data_type,
+       (SELECT COUNT(*) FROM information_schema.table_constraints tc
+        JOIN information_schema.key_column_usage kcu ON tc.constraint_name = kcu.constraint_name
+        WHERE tc.table_name = t.table_name AND kcu.column_name = c.column_name AND tc.constraint_type = 'PRIMARY KEY') as is_primary_key
+FROM information_schema.tables t
+JOIN information_schema.columns c ON t.table_name = c.table_name
+WHERE t.table_schema = 'public' ORDER BY t.table_name, c.ordinal_position;
+
+-- For Relationships (Foreign Keys)
+SELECT
+    kcu.table_name as from_table,
+    kcu.column_name as from_column,
+    ccu.table_name AS to_table,
+    ccu.column_name AS to_column
+FROM information_schema.table_constraints AS tc
+JOIN information_schema.key_column_usage AS kcu
+    ON tc.constraint_name = kcu.constraint_name
+JOIN information_schema.constraint_column_usage AS ccu
+    ON ccu.constraint_name = tc.constraint_name
+WHERE tc.constraint_type = 'FOREIGN KEY';
+                </pre
+          >
+          <h3>Step 2: Generate and Export</h3>
+          <p>
+            Click the <b>"Generate Dictionary"</b> button to see the glossary
+            and diagram. Use the <b>"Export"</b> buttons to download the output.
+          </p>
+        </div>
+      </details>
+
+      <h2>Input Schema (JSON)</h2>
+      <textarea
+        id="jsonInput"
+        rows="15"
+        placeholder="Paste your JSON schema here..."
+      ></textarea>
+      <button id="generateBtn">Generate Dictionary</button>
+
+      <hr />
+
+      <div class="output-controls">
+        <button id="exportHtmlBtn" style="display: none">Export to HTML</button>
+        <button id="exportPdfBtn" style="display: none">Export to PDF</button>
+      </div>
+
+      <div id="outputContainer"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <script src="script.js"></script>
+    <script src="../Q6/tracker.js"></script>
+  </body>
+</html>

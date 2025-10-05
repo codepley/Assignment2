@@ -1,0 +1,144 @@
+/* The body selector styles the main body of the HTML document */
+body {
+    /* Sets the font family for all text */
+    font-family: Arial, sans-serif;
+    /* Sets the background color of the page */
+    background-color: #f0f2f5;
+    /* Sets the default text color */
+    color: #333;
+    /* Uses Flexbox to center content */
+    display: flex;
+    /* Centers content horizontally */
+    justify-content: center;
+    /* Centers content vertically */
+    align-items: center;
+    /* Ensures the body takes up the full height of the viewport */
+    min-height: 100vh;
+    /* Removes default margin */
+    margin: 0;
+/* Closes the body style block */
+}
+
+/* The .main-container class selector styles the main content wrapper */
+.main-container {
+    /* Aligns text to the center within this container */
+    text-align: center;
+    /* Sets the background color of the container */
+    background-color: #ffffff;
+    /* Adds padding inside the container */
+    padding: 30px;
+    /* Applies rounded corners to the container */
+    border-radius: 10px;
+    /* Adds a subtle shadow for a lifting effect */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    /* Sets a maximum width for the container */
+    max-width: 500px;
+/* Closes the .main-container style block */
+}
+
+/* This selector styles the div that shows the current game state */
+#game-state {
+    /* Sets the background color for this section */
+    background-color: #e9ecef;
+    /* Sets the border radius */
+    border-radius: 5px;
+    /* Sets the padding */
+    padding: 15px;
+    /* Sets the margin at the bottom */
+    margin-bottom: 20px;
+    /* Sets the font size */
+    font-size: 1.2rem;
+/* Closes the #game-state style block */
+}
+
+/* This selector styles span elements for their text color */
+span {
+    /* Sets the font weight to bold */
+    font-weight: bold;
+/* Closes the span style block */
+}
+
+/* The .choice-button class selector styles the action buttons */
+.choice-button {
+    /* Sets the font size for the button text */
+    font-size: 1.2rem;
+    /* Sets the padding inside the buttons */
+    padding: 12px 24px;
+    /* Adds margin around the buttons */
+    margin: 0 10px;
+    /* Removes the default border */
+    border: none;
+    /* Applies rounded corners to the buttons */
+    border-radius: 5px;
+    /* Sets the text color inside the buttons */
+    color: white;
+    /* Changes the cursor to a pointer on hover */
+    cursor: pointer;
+    /* Adds a smooth transition effect for property changes */
+    transition: transform 0.2s;
+/* Closes the .choice-button style block */
+}
+
+/* The .go class selector styles the 'Go' button specifically */
+.go {
+    /* Sets the background color to green */
+    background-color: #28a745;
+/* Closes the .go style block */
+}
+
+/* The .stop class selector styles the 'Stop' button specifically */
+.stop {
+    /* Sets the background color to red */
+    background-color: #dc3545;
+/* Closes the .stop style block */
+}
+
+/* The #results-container ID selector styles the area for displaying results */
+#results-container {
+    /* Adds a margin at the top of the container */
+    margin-top: 20px;
+    /* Adds a border at the top of the container */
+    border-top: 1px solid #ddd;
+    /* Adds padding at the top of the container */
+    padding-top: 20px;
+/* Closes the #results-container style block */
+}
+
+/* This selector styles the paragraph for the analysis text */
+.analysis {
+    /* Sets a margin at the top */
+    margin-top: 15px;
+    /* Sets the text color to be slightly muted */
+    color: #6c757d;
+    /* Sets the font style to italic */
+    font-style: italic;
+/* Closes the .analysis style block */
+}
+
+/* This selector styles the 'Play Again' button */
+#play-again-button {
+    /* Sets the font size */
+    font-size: 1rem;
+    /* Sets the padding */
+    padding: 10px 20px;
+    /* Sets the margin on top */
+    margin-top: 20px;
+    /* Removes the border */
+    border: none;
+    /* Applies rounded corners */
+    border-radius: 5px;
+    /* Sets the text color */
+    color: white;
+    /* Sets the background color */
+    background-color: #007bff;
+    /* Sets the cursor to a pointer */
+    cursor: pointer;
+/* Closes the button style block */
+}
+
+/* The .hidden class selector is a utility to hide elements */
+.hidden {
+    /* Sets the display property to none, making the element invisible */
+    display: none;
+/* Closes the .hidden style block */
+}

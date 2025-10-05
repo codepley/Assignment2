@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Bowling Game - Gemini AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="bowling-canvas"></canvas>
+
+    <div id="ui-container">
+        <h1>3D Bowling</h1>
+        <p id="instructions">Click and drag to aim and shoot!</p>
+        <p>Score: <span id="score">0</span></p>
+        <button id="reset-button">New Game</button>
+    </div>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+    
+    <script type="module" src="https://unpkg.com/cannon-es@0.20.0/dist/cannon-es.js"></script>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>

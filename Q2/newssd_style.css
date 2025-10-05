@@ -1,0 +1,182 @@
+/* --- Global Styles & Variables --- */
+:root {
+    --primary-color: #0056b3;
+    --secondary-color: #007bff;
+    --background-color: #f4f7f6;
+    --card-background: #ffffff;
+    --text-color: #333;
+    --light-text-color: #666;
+    --border-color: #ddd;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 18px;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    margin: 0;
+    line-height: 1.7;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--primary-color);
+}
+
+/* --- Header & Navigation --- */
+header {
+    background: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+header h3 {
+    margin: 5px 0 0;
+    font-weight: 400;
+}
+
+nav {
+    background-color: #fff;
+    border-bottom: 2px solid var(--border-color);
+    text-align: center;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav a {
+    margin: 0 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+/* --- Content Sections (Cards) --- */
+section {
+    background-color: var(--card-background);
+    margin-bottom: 25px;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    scroll-margin-top: 100px; /* Offset for sticky nav */
+}
+
+section h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+/* --- Tables --- */
+.table-wrapper {
+    overflow-x: auto; /* Makes table scrollable on small screens */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+thead th {
+    background-color: #eef;
+    font-weight: 700;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* --- Course Policy Accordion --- */
+#policy-list {
+    list-style: none;
+    padding: 0;
+}
+#policy-list li {
+    border-bottom: 1px solid var(--border-color);
+    padding: 15px 0;
+}
+.policy-title {
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+}
+.policy-title:hover {
+    color: var(--primary-color);
+}
+.policy-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, margin-top 0.5s ease-out;
+}
+.policy-content.active {
+    max-height: 1000px; /* Set a large value */
+    margin-top: 15px;
+    transition: max-height 0.5s ease-in, margin-top 0.5s ease-in;
+}
+
+
+/* --- Footer --- */
+footer {
+    background-color: #333;
+    color: #ccc;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: #fff;
+}
+#clock {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    nav {
+        position: static;
+    }
+    nav a {
+        display: block;
+        padding: 8px;
+    }
+    section {
+        scroll-margin-top: 20px;
+    }
+    body {
+        font-size: 16px;
+    }
+}

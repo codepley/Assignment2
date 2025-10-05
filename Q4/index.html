@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stoplight Game - Nash Equilibrium</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <h1>The Stoplight Game</h1>
+
+      <div id="game-state">
+        <p>Your light is: <span id="light-color-span">---</span></p>
+      </div>
+
+      <div id="choices-container">
+        <button id="go-button" class="choice-button go">Go</button>
+        <button id="stop-button" class="choice-button stop">Stop</button>
+      </div>
+
+      <div id="results-container" class="hidden">
+        <h2>Results</h2>
+        <p>You Chose: <span id="player-choice-span">---</span></p>
+        <p>Computer Chose: <span id="computer-choice-span">---</span></p>
+        <h3>Outcome: <span id="outcome-span">---</span></h3>
+        <p>Your Payoff: <span id="player-payoff-span">---</span></p>
+        <p>Computer's Payoff: <span id="computer-payoff-span">---</span></p>
+        <p class="analysis"><span id="analysis-span">---</span></p>
+      </div>
+
+      <button id="play-again-button" class="hidden">Play Again</button>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="../Q6/tracker.js"></script>
+  </body>
+</html>
